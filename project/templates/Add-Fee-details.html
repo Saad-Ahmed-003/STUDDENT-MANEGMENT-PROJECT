@@ -1,0 +1,109 @@
+<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>add fee details</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Numans');
+
+      html,body{
+      background-image: url('https://getwallpapers.com/wallpaper/full/0/4/6/1448610-full-size-galaxy-computer-wallpaper-2560x1600.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%;
+      font-family: 'Numans', sans-serif;
+      }
+      
+      .container{
+          height: 100%;
+          align-content: center;
+      }
+      
+      .card{
+      height: 400px;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 500px;
+      text-align: center;
+      background-color: rgba(0,0,0,0.5) !important;
+      }
+      
+      .btn{
+          margin: 0.2rem;
+      }
+      
+      .input-div{
+          margin-left: 0.5rem;
+      }
+      
+      table tr{
+          color: aliceblue;
+      }
+      
+      label{
+          color: aliceblue;
+      }
+      
+      hr{
+          color: aliceblue;
+          background-color: aliceblue;
+          height: 5px;
+      }
+      
+      .btn{
+          width: 300px;
+      }
+      </style>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+        	{% if messages %}
+          		<ul class="flashes">
+              	{% for message in messages %}
+              		<li style="color: red;">{{ message }}</li>
+              	{% endfor %}
+          		</ul>
+        	{% endif %}
+    	{% endwith %}
+    <form class="needs-validation" action="/student/fee_details" method="post" novalidate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3 input-div">
+          <label for="validationCustomUsername">Username</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" name="username" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3 input-div">
+          <label for="validationCustom03"> amount </label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="amount" name="amount" required>
+        </div>
+        <div class="col-md-3 mb-3 input-div">
+          <label for="validationCustom04">status</label>
+          <div class="input-group">
+              <input type="text" class="form-control" id="validationCustom04" placeholder="payd/pending" name="status" required>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3 input-div">
+          <label for="validationCustom05">Phone number</label>
+          <input type="text" class="form-control" id="validationCustom05" placeholder="phone number" name="phone_number" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3 mb-3 input-div">
+            <label for="validationCustom05">Penalty</label>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="penalty" name="Penalty">
+        </div>
+      </div>
+      <a href="{{url_for('student')}}" class="btn btn-dark">back</a>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+  </body>
+</html>

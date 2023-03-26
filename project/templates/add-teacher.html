@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>add-teacher</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Numans');
+    
+    html,body{
+    background-image: url('https://getwallpapers.com/wallpaper/full/4/f/d/573323.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+    
+    .input-div{
+        margin-left: 0.5rem;
+    }
+    
+    label{
+        color: aliceblue;
+    }
+    
+    nav{
+        padding-top: 1rem;
+        padding-bottom: 0.6rem;
+    }
+    
+    
+    .table tr{
+        color: aliceblue;
+    }
+    hr{
+        color: aliceblue;
+        background-color: aliceblue;
+        height: 5px;
+    }
+    
+    </style>
+</head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+              {% for message in messages %}
+              <li style="color: red;">{{ message }}</li>
+              {% endfor %}
+          </ul>
+        {% endif %}
+    {% endwith %}
+      <form action="/admin/add_teacher" method="post">
+        <div class="form-row">
+          <div class="col-md-4 mb-3 input-div">
+            <label for="validationCustom01">name</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="name" value="Mark" name="name" required>
+          </div>
+          <div class="col-md-4 mb-3 input-div">
+            <label for="validationCustomUsername">Username</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" name="username" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3 input-div">
+            <label for="validationCustom03"> password </label>
+            <input type="text" class="form-control" id="validationCustom03" placeholder="password" name="password" required>
+          </div>
+          <div class="col-md-6 mb-3 input-div">
+            <label for="validationCustom03"> address </label>
+            <input type="text" class="form-control" id="" placeholder="address" name="address" required>
+          </div>
+          <div class="col-md-3 mb-3 input-div">
+            <label for="validationCustom04">email</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+              </div>
+                <input type="text" class="form-control" id="validationCustom04" placeholder="Example@email.com" name="email" required>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3 input-div">
+            <label for="validationCustom05">Phone number</label>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="phone number" name="number" required>
+          </div>
+        </div>
+        <a href="{{url_for('admin')}}"class="btn btn-dark "> back</a>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
+  </body>
+</html>

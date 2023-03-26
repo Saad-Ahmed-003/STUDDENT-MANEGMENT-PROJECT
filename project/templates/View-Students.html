@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+        <title>view-Students</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Numans');
+            html,body{
+            background-image: url('https://getwallpapers.com/wallpaper/full/2/1/b/198271.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+            }
+            .container{
+                height: 100%;
+                align-content: center;
+            }
+            .card{
+            height: 400px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 500px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5) !important;
+            }
+            .btn{
+                margin: 0.2rem;
+            }
+            .input-div{
+                margin-left: 0.5rem;
+            }
+            table tr{
+                color: aliceblue;
+            }
+            label{
+                color: aliceblue;
+            }
+            hr{
+                color: aliceblue;
+                background-color: aliceblue;
+                height: 5px;
+            }
+            .btn{
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class="flashes">
+					{% for message in messages %}
+					<li style="color: red;">{{ message }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+        <nav class="nav">
+            <a class="btn btn-outline-primary active" aria-current="page" href="{{url_for('student')}}">back</a>
+        </nav>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">email</th>
+                    <th scope="col">Phone</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in student_data %}
+                    <tr>
+                        <th scope="row">{{ i[0] }}</th>
+                        <td>{{ i[1] }}</td>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[5] }}</td>
+                        <td><a href="{{url_for('delete_student', name='teacher', table1='students', id_num=i[0], user=i[2] )}}"><button class="btn btn-outline-danger"> dellet </button></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

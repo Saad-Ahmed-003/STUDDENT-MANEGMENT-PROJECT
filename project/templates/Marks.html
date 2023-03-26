@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>add fee details</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Numans');
+            html,body{
+            background-image: url('https://getwallpapers.com/wallpaper/full/8/3/e/198252.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            font-family: 'Numans', sans-serif;
+            }
+            .container{
+                height: 100%;
+                align-content: center;
+            }
+            .card{
+            height: 400px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 500px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5) !important;
+            }
+            .btn{
+                margin: 0.2rem;
+            }
+            .input-div{
+                margin-left: 0.5rem;
+            }
+            table tr{
+                color: aliceblue;
+            }
+            label{
+                color: aliceblue;
+            }
+            hr{
+                color: aliceblue;
+                background-color: aliceblue;
+                height: 5px;
+            }
+            .btn{
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="needs-validation" action="/student/marks" method="post" novalidate>
+            <div class="form-row">
+                <div class="col-md-4 mb-3 input-div">
+                    <label for="validationCustom05">user</label>
+                    <input type="text" class="form-control" id="validationCustom05" placeholder="Username" name="username" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3 input-div">
+                    <label for="num">First sem</label>
+                    <input type="number" min="0" class="form-control" name="first_sem" placeholder="total" value="" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3 input-div">
+                    <label for="num">Second sem</label>
+                    <input type="number" min="0" class="form-control" name="second_sem" placeholder="total" value="" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3 input-div">
+                    <label for="num">Final sem</label>
+                    <input type="number" min="0" class="form-control" name="third_sem" placeholder="total" value="" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3 input-div">
+                    <label for="num">Practical</label>
+                    <input type="number" min="0" class="form-control" name="practical" placeholder="practical marks" value="" required>
+                </div>
+            </div>
+            <a href="{{url_for('student')}}" class="btn btn-dark ">back</a>
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+    </body>
+</html>

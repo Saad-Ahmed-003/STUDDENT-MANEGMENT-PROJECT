@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.input-div{
+    margin-left: 0.5rem;
+}
+
+label{
+    color: aliceblue;
+}
+
+nav{
+    padding-top: 1rem;
+    padding-bottom: 0.6rem;
+}
+
+
+.table tr{
+    color: aliceblue;
+}
+hr{
+    color: aliceblue;
+    background-color: aliceblue;
+    height: 5px;
+}
